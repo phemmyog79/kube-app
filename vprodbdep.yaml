@@ -12,7 +12,7 @@ spec:
   template:
     metadata:
       labels:
-          app: vprodb
+        app: vprodb
     spec:
       containers:
         - name: vprodb
@@ -33,16 +33,14 @@ spec:
         zone: us-east-1a
       volumes:
         - name: vpro-db-data
-          awsElasticBlocStore:
+          awsElasticBlockStore:  # Corrected spelling of "Elastic"
             volumeID: vol-04c603868e0b6a1ab
             fsType: ext4
 
       initContainers:
         - name: busybox
           image: busybox:latest
-          args: ["rm", "-rf", "/var/lib/mysql/lost+found"]
+          args: ["rm", "-rf", "/var/lib/mysql/lost+found"]  # Corrected args to an array
           volumeMounts:
-            - mame: vpro-db-data
+            - name: vpro-db-data  # Corrected spelling of "name"
               mountPath: /var/lib/mysql
-
-
