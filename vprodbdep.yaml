@@ -38,7 +38,7 @@ spec:
             fsType: ext4
 
       initContainers:
-        - name: busybox
+        - name: 
           image: busybox:latest
           args: ["rm", "-rf", "/var/lib/mysql/lost+found"]  # Corrected args to an array
           volumeMounts:
